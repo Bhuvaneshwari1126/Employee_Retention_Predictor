@@ -46,9 +46,13 @@ with st.sidebar:
 # -----------------------------
 # LOAD MODEL & ENCODERS
 # -----------------------------
-model = joblib.load("../Dataset/employee_retention_model.pkl")
-encoders = joblib.load("../Dataset/label_encoders.pkl")
+import os
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATASET_DIR = os.path.join(BASE_DIR, "..", "Dataset")
+
+model = joblib.load(os.path.join(DATASET_DIR, "employee_retention_model.pkl"))
+encoders = joblib.load(os.path.join(DATASET_DIR, "label_encoders.pkl"))
 # -----------------------------
 # PROFESSIONAL HEADER
 # -----------------------------
